@@ -2,6 +2,7 @@
 
 Free AI coding tools for developers who refuse to pay.
 
+[Add A Tool](https://github.com/Joe-Huber/AI-For-Brokies/issues/new?title=%5BAUTO%20NEW%20TOOL%5D&body=%23%23%23%20Tool%20Name%0A%0A%23%23%23%20Tool%20Link%0A%0A%23%23%23%20Category%0A%0A%23%23%23%20Description%0A%0A%23%23%23%20Free%20Tier%0A%0A%23%23%23%20Score%0A%0A%23%23%23%20Tags%0A%0A%23%23%23%20Notes)
 ## Tools
 
 | Tool                                                          | Category                      | Description                           | Free tier                                                                                      | Score | Tags                                          | Notes                                                                                                          |
@@ -21,4 +22,3 @@ Free AI coding tools for developers who refuse to pay.
 | [Aider](https://github.com/Aider-AI/aider)                    | Terminal App                  | AI pair programming in CLI            | Free (API usage if using paid models)                                                          |  4/10 | `Terminal-App` `Open-Source`                  | -                                                                                                              |
 | [Kilo Code](https://kilocode.ai/)                             | IDE Extension & Terminal App  | 24/7 AI Agent                         | Free with Kilo Auto, can use API keys                                                          |  3/10 | `IDE-Extension`  `Terminal-App` `Open-Source` | -                                                                                                              |
 | [Amazon CodeWhisperer](https://aws.amazon.com/codewhisperer/) | IDE Extension & Terminal App  | AWS AI coding assistant               | Limited free agentic claude requests per month                                                 |  7/10 | `IDE-Extension` `Terminal-App`                | -                                                                                                              |
-
