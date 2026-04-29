@@ -1,6 +1,29 @@
-## AI-For-Brokies
-
-Free AI coding tools for developers who refuse to pay.
+<div align="center">
+  <h1 align="center">AI For Brokies</h1>
+  <p align="center">
+    Free AI coding tools for developers who refuse to pay. 💰❌
+  </p>
+  <p align="center">
+    <a href="https://github.com/Joe-Huber/AI-For-Brokies/blob/main/LICENSE">
+      <img alt="License" src="https://img.shields.io/github/license/Joe-Huber/AI-For-Brokies">
+    </a>
+    <a href="https://github.com/Joe-Huber/AI-For-Brokies/issues">
+      <img alt="Issues" src="https://img.shields.io/github/issues/Joe-Huber/AI-For-Brokies">
+    </a>
+    <a href="https://github.com/Joe-Huber/AI-For-Brokies/network/members">
+      <img alt="Forks" src="https://img.shields.io/github/forks/Joe-Huber/AI-For-Brokies">
+    </a>
+    <a href="https://github.com/Joe-Huber/AI-For-Brokies/stargazers">
+      <img alt="Stars" src="https://img.shields.io/github/stars/Joe-Huber/AI-For-Brokies">
+    </a>
+    <a href="https://github.com/Joe-Huber/AI-For-Brokies/commits/main">
+      <img alt="Last Commit" src="https://img.shields.io/github/last-commit/Joe-Huber/AI-For-Brokies">
+    </a>
+    <a href="https://github.com/Joe-Huber/AI-For-Brokies/actions/workflows/add-tool.yml">
+      <img alt="Action Status" src="https://github.com/Joe-Huber/AI-For-Brokies/actions/workflows/add-tool.yml/badge.svg">
+    </a>
+  </p>
+</div>
 
 [Add A Tool](https://github.com/Joe-Huber/AI-For-Brokies/issues/new?title=%5BAUTO%20NEW%20TOOL%5D&body=%23%23%23%20Tool%20Name%0A%0A%23%23%23%20Tool%20Link%0A%0A%23%23%23%20Category%0A%0A%23%23%23%20Description%0A%0A%23%23%23%20Free%20Tier%0A%0A%23%23%23%20Score%0A%0A%23%23%23%20Tags%0A%0A%23%23%23%20Notes)
 ## Tools
