@@ -1,6 +1,8 @@
 name: Add Tool from Issue
 
 on:
+  issues:
+    types: [opened, reopened]
   issue_comment:
     types: [created]
   workflow_dispatch:
@@ -15,13 +17,36 @@ permissions:
   issues: write
 
 jobs:
+  request-approval:
+    if: |
+      github.event_name == 'issues' &&
+      startsWith(github.event.issue.title, '[AUTO NEW TOOL]')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ask maintainer to review
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: [
+                '@Joe-Huber please review this tool submission.',
+                '',
+                'If it looks good, comment `/approve` on this issue to add it to the README.',
+                'Only approvals from @Joe-Huber will trigger the commit workflow.'
+              ].join('\n')
+            })
+
   add-tool:
     if: |
       github.event_name == 'workflow_dispatch' ||
       (github.event_name == 'issue_comment' &&
        github.event.issue != null &&
        startsWith(github.event.issue.title, '[AUTO NEW TOOL]') &&
-       contains(github.event.comment.body, '/approve'))
+       github.event.comment.user.login == 'Joe-Huber' &&
+       github.event.comment.body == '/approve')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
