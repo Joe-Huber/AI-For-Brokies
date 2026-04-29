@@ -25,7 +25,12 @@
   </p>
 </div>
 
-[Add A Tool](https://github.com/Joe-Huber/AI-For-Brokies/issues/new?title=%5BAUTO%20NEW%20TOOL%5D&body=%23%23%23%20Tool%20Name%0A%0A%23%23%23%20Tool%20Link%0A%0A%23%23%23%20Category%0A%0A%23%23%23%20Description%0A%0A%23%23%23%20Free%20Tier%0A%0A%23%23%23%20Score%0A%0A%23%23%23%20Tags%0A%0A%23%23%23%20Notes)
+<p align="center">
+  <a href="https://github.com/Joe-Huber/AI-For-Brokies/issues/new?title=%5BAUTO%20NEW%20TOOL%5D&body=%23%23%23%20Tool%20Name%0A%0A%23%23%23%20Tool%20Link%0A%0A%23%23%23%20Category%0A%0A%23%23%23%20Description%0A%0A%23%23%23%20Free%20Tier%0A%0A%23%23%23%20Score%0A%0A%23%23%23%20Tags%0A%0A%23%23%23%20Notes">
+    <img alt="Add a Tool" src="https://img.shields.io/badge/Add%20a%20Tool-Submit%20a%20Free%20AI%20Tool-2ea44f?style=for-the-badge&logo=github">
+  </a>
+</p>
+
 ## Tools
 
 | Tool                                                          | Category                      | Description                           | Free tier                                                                                      | Score | Tags                                          | Notes                                                                                                          |
