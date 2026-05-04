@@ -36,7 +36,7 @@ def parse_score(score):
     if not score:
         return None
 
-    match = re.fullmatch(r"(\d{1,2})(?:/10)?", score.strip())
+    match = re.fullmatch(r"([0-9]|10)/10", score.strip())
     if not match:
         return None
 
@@ -64,8 +64,31 @@ def issue_fields_to_tool(fields):
     }
 
 
-def validate_submission(tool, existing_tools):
-    errors = generate_readme.validate_tool(tool)
+def validate_submission(fields, tool, existing_tools):
+    errors = []
+
+    required_fields = {
+        "tool_name": "Tool Name",
+        "tool_link": "Tool Link",
+        "category": "Category",
+        "description": "Description",
+        "free_tier": "Free Tier",
+        "score": "Score",
+        "tags": "Tags",
+    }
+
+    for key, label in required_fields.items():
+        if not fields.get(key):
+            errors.append(f"{label} is required")
+
+    parsed_url = urlparse(str(tool.get("url") or ""))
+    if fields.get("tool_link") and (
+        parsed_url.scheme not in {"http", "https"} or not parsed_url.netloc
+    ):
+        errors.append("Tool Link must be a valid http(s) URL")
+
+    if fields.get("score") and tool.get("score") is None:
+        errors.append("Score must be in format 'X/10' from 0/10 through 10/10")
 
     name_key = str(tool.get("name") or "").casefold()
     url_key = str(tool.get("url") or "").rstrip("/").casefold()
@@ -77,10 +100,6 @@ def validate_submission(tool, existing_tools):
 
     if url_key and url_key in existing_urls:
         errors.append("Tool Link already exists")
-
-    parsed_url = urlparse(str(tool.get("url") or ""))
-    if parsed_url.scheme not in {"http", "https"}:
-        errors.append("Tool Link must start with http:// or https://")
 
     return errors
 
@@ -101,7 +120,7 @@ def main():
     fields = parse_issue_body(issue.body)
     existing_tools = generate_readme.load_tools()
     new_tool = issue_fields_to_tool(fields)
-    errors = validate_submission(new_tool, existing_tools)
+    errors = validate_submission(fields, new_tool, existing_tools)
 
     if errors:
         error_msg = "**Failed to add tool. Please fix the following errors:**\n\n"
