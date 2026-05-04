@@ -72,7 +72,7 @@
     "free_tier": "2000 completions per month",
     "score": 6,
     "tags": [
-      "IDE-Extentsion",
+      "IDE-Extension",
       "Terminal-App"
     ],
     "notes": "Free premium for [students](https://docs.github.com/en/copilot/how-tos/copilot-on-github/set-up-copilot/enable-copilot/set-up-for-students)"
@@ -85,7 +85,7 @@
     "free_tier": "3 AI Credits per 30 days",
     "score": 3,
     "tags": [
-      "IDE-Extentsion"
+      "IDE-Extension"
     ],
     "notes": "JetBrains offers free AI in IDE with [JetBrains Student Pack](https://www.jetbrains.com/academy/student-pack/)"
   },
@@ -97,7 +97,7 @@
     "free_tier": "No limit free, can use API for better models",
     "score": 3,
     "tags": [
-      "IDE-Extentsion",
+      "IDE-Extension",
       "Terminal-App"
     ],
     "notes": "-"
