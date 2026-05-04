@@ -1,0 +1,197 @@
+[
+  {
+    "name": "Codex",
+    "url": "https://chatgpt.com/codex/",
+    "category": "Model's App",
+    "description": "OpenAI's app for ChatGPT coding",
+    "free_tier": "Token limits across 5h, 1 week, and 1 month",
+    "score": 9,
+    "tags": [
+      "Model",
+      "Desktop App"
+    ],
+    "notes": "[$100 in credit for students](https://developers.openai.com/community/students)"
+  },
+  {
+    "name": "Gemini Code Assist",
+    "url": "https://codeassist.google/",
+    "category": "IDE Extension & Terminal App",
+    "description": "Google's AI code assistant",
+    "free_tier": "[1000 max requests per day](https://developers.google.com/gemini-code-assist/resources/quotas)",
+    "score": 7,
+    "tags": [
+      "IDE-Extension",
+      "Terminal-App"
+    ],
+    "notes": "-"
+  },
+  {
+    "name": "Cursor",
+    "url": "https://cursor.com/",
+    "category": "IDE",
+    "description": "AI-native code editor",
+    "free_tier": "2,000 completions and 50 slow premium requests per month",
+    "score": 8,
+    "tags": [
+      "IDE",
+      "Desktop-App"
+    ],
+    "notes": "[Free pro for one year for students](https://cursor.com/students)"
+  },
+  {
+    "name": "Qodo",
+    "url": "https://www.qodo.ai/",
+    "category": "IDE Extension",
+    "description": "AI-powered testing and coding",
+    "free_tier": "75 credits per month",
+    "score": 6,
+    "tags": [
+      "IDE-Extension",
+      "Open-Source"
+    ],
+    "notes": "-"
+  },
+  {
+    "name": "OpenCode",
+    "url": "https://github.com/anomalyco/opencode",
+    "category": "Terminal app",
+    "description": "Open source alternative to Claud code",
+    "free_tier": "Needs API key for better models, [base model is free](https://opencode.ai/zen)",
+    "score": 6,
+    "tags": [
+      "Terminal-App",
+      "Open-Source"
+    ],
+    "notes": "-"
+  },
+  {
+    "name": "GitHub Copilot",
+    "url": "https://github.com/features/copilot",
+    "category": "IDE Extension & Terminal App",
+    "description": "AI pair programmer",
+    "free_tier": "2000 completions per month",
+    "score": 6,
+    "tags": [
+      "IDE-Extentsion",
+      "Terminal-App"
+    ],
+    "notes": "Free premium for [students](https://docs.github.com/en/copilot/how-tos/copilot-on-github/set-up-copilot/enable-copilot/set-up-for-students)"
+  },
+  {
+    "name": "Junie",
+    "url": "https://www.jetbrains.com/junie/",
+    "category": "IDE Extension",
+    "description": "JetBrain's AI tool",
+    "free_tier": "3 AI Credits per 30 days",
+    "score": 3,
+    "tags": [
+      "IDE-Extentsion"
+    ],
+    "notes": "JetBrains offers free AI in IDE with [JetBrains Student Pack](https://www.jetbrains.com/academy/student-pack/)"
+  },
+  {
+    "name": "Cline",
+    "url": "https://github.com/cline/cline",
+    "category": "IDE Extension  & Terminal App",
+    "description": "Open Source AI Assistant",
+    "free_tier": "No limit free, can use API for better models",
+    "score": 3,
+    "tags": [
+      "IDE-Extentsion",
+      "Terminal-App"
+    ],
+    "notes": "-"
+  },
+  {
+    "name": "Ollama",
+    "url": "https://ollama.com/",
+    "category": "Terminal App & API",
+    "description": "Run LLMs locally",
+    "free_tier": "Free and open source, runs models like Llama, Mistral, and more",
+    "score": 5,
+    "tags": [
+      "Terminal-App",
+      "Open-Source"
+    ],
+    "notes": "-"
+  },
+  {
+    "name": "Continue",
+    "url": "https://github.com/continuedev/continue",
+    "category": "IDE Extension & Terminal App",
+    "description": "Open-source Copilot alternative",
+    "free_tier": "Unlimited (local or API-based)",
+    "score": 4,
+    "tags": [
+      "IDE-Extension",
+      "Open-Source",
+      "Terminal-App"
+    ],
+    "notes": "-"
+  },
+  {
+    "name": "Windsurf",
+    "url": "https://windsurf.com/",
+    "category": "IDE Extension & IDE",
+    "description": "Free AI IDE and Extension",
+    "free_tier": "Unlimited completions, light quota, unlimited inline edits",
+    "score": 4,
+    "tags": [
+      "IDE-Extension",
+      "IDE"
+    ],
+    "notes": "-"
+  },
+  {
+    "name": "Zed",
+    "url": "https://zed.dev/",
+    "category": "IDE",
+    "description": "High-performance editor w/ AI",
+    "free_tier": "2000 accepted edits or API key",
+    "score": 4,
+    "tags": [
+      "IDE"
+    ],
+    "notes": "-"
+  },
+  {
+    "name": "Aider",
+    "url": "https://github.com/Aider-AI/aider",
+    "category": "Terminal App",
+    "description": "AI pair programming in CLI",
+    "free_tier": "Free (API usage if using paid models)",
+    "score": 4,
+    "tags": [
+      "Terminal-App",
+      "Open-Source"
+    ],
+    "notes": "-"
+  },
+  {
+    "name": "Kilo Code",
+    "url": "https://kilocode.ai/",
+    "category": "IDE Extension & Terminal App",
+    "description": "24/7 AI Agent",
+    "free_tier": "Free with Kilo Auto, can use API keys",
+    "score": 3,
+    "tags": [
+      "IDE-Extension",
+      "Terminal-App",
+      "Open-Source"
+    ],
+    "notes": "-"
+  },
+  {
+    "name": "Amazon CodeWhisperer",
+    "url": "https://aws.amazon.com/codewhisperer/",
+    "category": "IDE Extension & Terminal App",
+    "description": "AWS AI coding assistant",
+    "free_tier": "Limited free agentic claude requests per month",
+    "score": 7,
+    "tags": [
+      "IDE-Extension",
+      "Terminal-App"
+    ],
+    "notes": "-"
+  }
+]

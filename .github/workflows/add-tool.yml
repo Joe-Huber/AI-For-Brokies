@@ -34,7 +34,7 @@ jobs:
               body: [
                 '@Joe-Huber please review this tool submission.',
                 '',
-                'If it looks good, comment `/approve` on this issue to add it to the README.',
+                'If it looks good, comment `/approve` on this issue to add it to tools.json and regenerate the README.',
                 'Only approvals from @Joe-Huber will trigger the commit workflow.'
               ].join('\n')
             })
@@ -68,7 +68,7 @@ jobs:
             echo "ISSUE_NUMBER=${{ github.event.issue.number }}" >> $GITHUB_ENV
           fi
 
-      - name: Process issue and update README
+      - name: Process issue and update tools
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO_NAME: ${{ github.repository }}
@@ -78,5 +78,5 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add README.md
-          git diff --staged --quiet || (git commit -m "bot: add new tool from issue #${ISSUE_NUMBER} to readme" && git push)
+          git add README.md tools.json
+          git diff --staged --quiet || (git commit -m "bot: add new tool from issue #${ISSUE_NUMBER}" && git push)
