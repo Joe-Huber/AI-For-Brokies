@@ -119,9 +119,9 @@ def render_tools_table(tools):
     header = "| " + " | ".join(header.ljust(width) for header, width in zip(headers, widths)) + " |"
     separator_cells = []
     for header_name, width in zip(headers, widths):
-        marker = "-" * width
+        marker = "-" * (width + 2)
         separator_cells.append(marker[:-1] + ":" if header_name == "Score" else marker)
-    separator = "| " + " | ".join(separator_cells) + " |"
+    separator = "|" + "|".join(separator_cells) + "|"
 
     rendered_rows = []
     for row in rows:
