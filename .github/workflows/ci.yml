@@ -23,7 +23,7 @@ jobs:
           python-version: "3.12"
 
       - name: Compile Python scripts
-        run: python -m py_compile .github/scripts/generate_readme.py .github/scripts/add_tool.py
+        run: python -m py_compile .github/scripts/generate_readme.py .github/scripts/add_tool.py .github/scripts/check_links.py
 
       - name: Validate tools.json
         run: |
