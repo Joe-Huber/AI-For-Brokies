@@ -1,76 +1,94 @@
 import os
 import re
 import sys
+from pathlib import Path
+from urllib.parse import urlparse
+
 from github import Github
+
+SCRIPT_DIR = Path(__file__).resolve().parent
+sys.path.insert(0, str(SCRIPT_DIR))
+
+import generate_readme
+
 
 def parse_issue_body(body):
     fields = {}
     patterns = {
-        'tool_name': r'### Tool Name\s+(.*?)(?=###|$)',
-        'tool_link': r'### Tool Link\s+(.*?)(?=###|$)',
-        'category': r'### Category\s+(.*?)(?=###|$)',
-        'description': r'### Description\s+(.*?)(?=###|$)',
-        'free_tier': r'### Free Tier\s+(.*?)(?=###|$)',
-        'score': r'### Score\s+(.*?)(?=###|$)',
-        'tags': r'### Tags\s+(.*?)(?=###|$)',
-        'notes': r'### Notes\s+(.*?)(?=$)',
+        "tool_name": r"### Tool Name\s+(.*?)(?=###|$)",
+        "tool_link": r"### Tool Link\s+(.*?)(?=###|$)",
+        "category": r"### Category\s+(.*?)(?=###|$)",
+        "description": r"### Description\s+(.*?)(?=###|$)",
+        "free_tier": r"### Free Tier\s+(.*?)(?=###|$)",
+        "score": r"### Score\s+(.*?)(?=###|$)",
+        "tags": r"### Tags\s+(.*?)(?=###|$)",
+        "notes": r"### Notes\s+(.*?)(?=$)",
     }
 
     for key, pattern in patterns.items():
-        match = re.search(pattern, body, re.DOTALL)
-        if match:
-            value = match.group(1).strip()
-            fields[key] = value if value else None
-        else:
-            fields[key] = None
+        match = re.search(pattern, body or "", re.DOTALL)
+        fields[key] = match.group(1).strip() if match and match.group(1).strip() else None
 
     return fields
 
-def validate_fields(fields):
-    errors = []
 
-    if not fields.get('tool_name'):
-        errors.append("Tool Name is required")
-    if not fields.get('tool_link'):
-        errors.append("Tool Link is required")
-    if not fields.get('category'):
-        errors.append("Category is required")
-    if not fields.get('description'):
-        errors.append("Description is required")
-    if not fields.get('free_tier'):
-        errors.append("Free Tier is required")
+def parse_score(score):
+    if not score:
+        return None
 
-    score = fields.get('score', '')
-    if score:
-        if not re.match(r'^\d{1,2}/10$', score):
-            errors.append("Score must be in format 'X/10' (e.g., 5/10)")
-    else:
-        errors.append("Score is required")
+    match = re.fullmatch(r"(\d{1,2})(?:/10)?", score.strip())
+    if not match:
+        return None
+
+    return int(match.group(1))
+
+
+def parse_tags(tags):
+    if not tags:
+        return []
+
+    raw_tags = re.split(r"[\s,]+", tags.strip())
+    return [tag.strip().strip("`") for tag in raw_tags if tag.strip().strip("`")]
+
+
+def issue_fields_to_tool(fields):
+    return {
+        "name": fields.get("tool_name"),
+        "url": fields.get("tool_link"),
+        "category": fields.get("category"),
+        "description": fields.get("description"),
+        "free_tier": fields.get("free_tier"),
+        "score": parse_score(fields.get("score")),
+        "tags": parse_tags(fields.get("tags")),
+        "notes": fields.get("notes") or "-",
+    }
+
+
+def validate_submission(tool, existing_tools):
+    errors = generate_readme.validate_tool(tool)
+
+    name_key = str(tool.get("name") or "").casefold()
+    url_key = str(tool.get("url") or "").rstrip("/").casefold()
+    existing_names = {str(existing.get("name", "")).casefold() for existing in existing_tools}
+    existing_urls = {str(existing.get("url", "")).rstrip("/").casefold() for existing in existing_tools}
+
+    if name_key and name_key in existing_names:
+        errors.append("Tool Name already exists")
+
+    if url_key and url_key in existing_urls:
+        errors.append("Tool Link already exists")
+
+    parsed_url = urlparse(str(tool.get("url") or ""))
+    if parsed_url.scheme not in {"http", "https"}:
+        errors.append("Tool Link must start with http:// or https://")
 
     return errors
 
-def format_tags(tags_str):
-    if not tags_str:
-        return '-'
-    tags = [t.strip().strip('`') for t in tags_str.split() if t.strip()]
-    return ' '.join(f'`{tag}`' for tag in tags)
-
-def create_table_row(fields):
-    name = fields['tool_name']
-    link = fields['tool_link']
-    category = fields['category']
-    description = fields['description']
-    free_tier = fields['free_tier']
-    score = fields['score']
-    tags = format_tags(fields.get('tags', ''))
-    notes = fields.get('notes', '-') or '-'
-
-    return f"| [{name}]({link}) | {category} | {description} | {free_tier} | {score} | {tags} | {notes} |"
 
 def main():
-    token = os.environ.get('GITHUB_TOKEN')
-    repo_name = os.environ.get('REPO_NAME')
-    issue_number = os.environ.get('ISSUE_NUMBER')
+    token = os.environ.get("GITHUB_TOKEN")
+    repo_name = os.environ.get("REPO_NAME")
+    issue_number = os.environ.get("ISSUE_NUMBER")
 
     if not all([token, repo_name, issue_number]):
         print("Missing required environment variables")
@@ -81,35 +99,34 @@ def main():
     issue = repo.get_issue(int(issue_number))
 
     fields = parse_issue_body(issue.body)
-    errors = validate_fields(fields)
+    existing_tools = generate_readme.load_tools()
+    new_tool = issue_fields_to_tool(fields)
+    errors = validate_submission(new_tool, existing_tools)
 
     if errors:
         error_msg = "**Failed to add tool. Please fix the following errors:**\n\n"
-        error_msg += "\n".join(f"- {e}" for e in errors)
+        error_msg += "\n".join(f"- {error}" for error in errors)
         issue.create_comment(error_msg)
-        issue.edit(state='closed')
+        issue.edit(state="closed")
         print("Validation failed:", errors)
         sys.exit(1)
 
-    new_row = create_table_row(fields)
-
-    with open('README.md', 'r') as f:
-        content = f.read()
-
-    last_row_match = list(re.finditer(r'\| \[.*?\]\(.*?\) \| .*? \| .*? \| .*? \| .*? \| .*? \| .*? \|', content))
-    if not last_row_match:
-        print("Could not find table in README")
+    tools = [*existing_tools, new_tool]
+    all_errors = generate_readme.validate_tools(tools)
+    if all_errors:
+        issue.create_comment("**Failed to add tool because tools.json validation failed.**")
+        print("tools.json validation failed:", all_errors)
         sys.exit(1)
 
-    last_row_end = last_row_match[-1].end()
-    updated_content = content[:last_row_end] + '\n' + new_row + content[last_row_end:]
+    generate_readme.save_tools(tools)
+    generate_readme.render_readme(tools)
 
-    with open('README.md', 'w') as f:
-        f.write(updated_content)
+    issue.create_comment(
+        f"**Tool '{new_tool['name']}' has been added to tools.json!** The README has been regenerated."
+    )
+    issue.edit(state="closed")
+    print(f"Successfully added {new_tool['name']}")
 
-    issue.create_comment(f"**Tool '{fields['tool_name']}' has been added to the list!** The README has been updated.")
-    issue.edit(state='closed')
-    print(f"Successfully added {fields['tool_name']}")
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
