@@ -193,5 +193,17 @@
       "Terminal-App"
     ],
     "notes": "-"
+  },
+  {
+    "name": "Test",
+    "url": "https://github.com/Joe-Huber/CopyPastePlus/issues/23",
+    "category": "Model",
+    "description": "bad",
+    "free_tier": "frerere",
+    "score": 10,
+    "tags": [
+      "good"
+    ],
+    "notes": "-"
   }
 ]
