@@ -57,7 +57,7 @@
     "category": "Terminal app",
     "description": "Open source alternative to Claud code",
     "free_tier": "Needs API key for better models, [base model is free](https://opencode.ai/zen)",
-    "score": 6,
+    "score": 7,
     "tags": [
       "Terminal-App",
       "Open-Source"
