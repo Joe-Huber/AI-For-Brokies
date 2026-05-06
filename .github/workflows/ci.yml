@@ -29,6 +29,9 @@ jobs:
         run: |
           python -c "import sys; sys.path.insert(0, '.github/scripts'); import generate_readme; errors = generate_readme.validate_tools(generate_readme.load_tools()); print('tools.json is valid' if not errors else '\n'.join(errors)); sys.exit(1 if errors else 0)"
 
+      - name: Validate link extraction
+        run: python .github/scripts/check_links.py --list
+
       - name: Verify README is generated
         run: |
           python .github/scripts/generate_readme.py

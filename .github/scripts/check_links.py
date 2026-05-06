@@ -105,12 +105,20 @@ def main():
     parser = argparse.ArgumentParser(description="Check links referenced by tools.json.")
     parser.add_argument("--timeout", type=int, default=DEFAULT_TIMEOUT, help="Timeout per request in seconds.")
     parser.add_argument("--limit", type=int, help="Only check the first N unique links.")
+    parser.add_argument("--list", action="store_true", help="List links without checking them.")
     args = parser.parse_args()
 
     tools = generate_readme.load_tools()
     links = extract_links(tools)
     if args.limit:
         links = links[: args.limit]
+
+    if args.list:
+        for label, url in links:
+            print(f"{label}: {url}")
+        print()
+        print(f"Found {len(links)} unique links")
+        return
 
     results = [check_url(label, url, args.timeout) for label, url in links]
     failed = print_results(results)
