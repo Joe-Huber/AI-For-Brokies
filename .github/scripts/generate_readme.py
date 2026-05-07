@@ -144,7 +144,7 @@ def render_readme(tools, readme_path=README_PATH):
         raise ValueError(f"Could not find {TOOLS_HEADING!r} section in README.md")
 
     table = render_tools_table(tools)
-    readme_path.write_text(f"{prefix}{TOOLS_HEADING}\n\n{table}\n", encoding="utf-8")
+    readme_path.write_text(f"{prefix}{TOOLS_HEADING}\n\n\n{table}\n", encoding="utf-8")
 
 
 def main():
