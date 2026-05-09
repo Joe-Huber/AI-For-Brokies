@@ -6,6 +6,7 @@ ROOT_DIR = Path(__file__).resolve().parents[2]
 README_PATH = ROOT_DIR / "README.md"
 TOOLS_PATH = ROOT_DIR / "tools.json"
 TOOLS_HEADING = "## My Top Free Tools 💜"
+TOOLS_TABLE_PREFIX = "\n\n\n\n"
 TOOLS_NOTE = "Tool data lives in [tools.json](tools.json). Run `python .github/scripts/generate_readme.py` after editing it."
 
 REQUIRED_FIELDS = (
@@ -139,24 +140,13 @@ def render_readme(tools, readme_path=README_PATH):
         raise ValueError("\n".join(errors))
 
     readme = readme_path.read_text(encoding="utf-8")
-    print(f"--- Original README content (first 200 chars) ---\n{readme[:200]!r}\n---")
-
     prefix, separator, _ = readme.partition(TOOLS_HEADING)
-    print(f"--- Partition results ---")
-    print(f"Prefix (last 50 chars): {prefix[-50:]!r}")
-    print(f"Separator: {separator!r}")
-    print(f"---")
 
     if not separator:
         raise ValueError(f"Could not find {TOOLS_HEADING!r} section in README.md")
 
     table = render_tools_table(tools)
-    print(f"--- Generated table (first 200 chars) ---\n{table[:200]!r}\n---")
-
-    
-    new_content = f"{prefix}{TOOLS_HEADING}\n\n{table}\n"
-    print(f"--- New content to write (first 200 chars) ---\n{new_content[:200]!r}\n---")
-
+    new_content = f"{prefix}{TOOLS_HEADING}{TOOLS_TABLE_PREFIX}{table}\n"
     readme_path.write_text(new_content, encoding="utf-8")
 
 
