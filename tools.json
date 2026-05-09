@@ -193,5 +193,18 @@
       "Terminal-App"
     ],
     "notes": "-"
+  },
+  {
+    "name": "Kiro",
+    "url": "https://kiro.dev/",
+    "category": "IDE & Terminal App",
+    "description": "Simple AI Coding tool",
+    "free_tier": "50 credits per month & access to sonnet 4.5",
+    "score": 4,
+    "tags": [
+      "IDE",
+      "Terminal-App"
+    ],
+    "notes": "[1,000 credits per month for one year for students](https://kiro.dev/students/)"
   }
 ]
