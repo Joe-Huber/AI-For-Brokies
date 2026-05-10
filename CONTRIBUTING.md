@@ -31,7 +31,7 @@ All tools must pass validation checks (run by CI on every PR):
 
 - All fields are required (notes can be `-`)
 - `url` must be a valid http(s) URL
-- `score` must be an integer from 0–10
+- `score` must be an integer between 0–10
 - `tags` must be a non-empty list of strings
 - Names and URLs must be unique
 
