@@ -24,7 +24,7 @@ For an example, see [example_issue.md](example_issue.md).
 You can also edit [tools.json](tools.json) by hand and regenerate the README:
 
 ```bash
-python .github/scripts/generate_readme.py
+python scripts/generate_readme.py
 ```
 
 All tools must pass validation checks (run by CI on every PR):
@@ -39,11 +39,11 @@ All tools must pass validation checks (run by CI on every PR):
 
 ```bash
 # Validate tools.json and verify README matches
-python .github/scripts/generate_readme.py
+python scripts/generate_readme.py
 git diff --exit-code README.md
 
 # Check all tool links are reachable
-python .github/scripts/check_links.py
+python scripts/check_links.py
 ```
 
 ## Pull Requests

@@ -23,16 +23,16 @@ jobs:
           python-version: "3.12"
 
       - name: Compile Python scripts
-        run: python -m py_compile .github/scripts/generate_readme.py .github/scripts/add_tool.py .github/scripts/check_links.py
+        run: python -m py_compile scripts/generate_readme.py scripts/add_tool.py scripts/check_links.py
 
       - name: Validate tools.json
         run: |
-          python -c "import sys; sys.path.insert(0, '.github/scripts'); import generate_readme; errors = generate_readme.validate_tools(generate_readme.load_tools()); print('tools.json is valid' if not errors else '\n'.join(errors)); sys.exit(1 if errors else 0)"
+          python -c "import sys; sys.path.insert(0, 'scripts'); import generate_readme; errors = generate_readme.validate_tools(generate_readme.load_tools()); print('tools.json is valid' if not errors else '\n'.join(errors)); sys.exit(1 if errors else 0)"
 
       - name: Validate link extraction
-        run: python .github/scripts/check_links.py --list
+        run: python scripts/check_links.py --list
 
       - name: Verify README is generated
         run: |
-          python .github/scripts/generate_readme.py
+          python scripts/generate_readme.py
           git diff --exit-code README.md

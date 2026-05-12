@@ -72,7 +72,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO_NAME: ${{ github.repository }}
-        run: python .github/scripts/add_tool.py
+        run: python scripts/add_tool.py
 
       - name: Commit and push changes
         run: |
