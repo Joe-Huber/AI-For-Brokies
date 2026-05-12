@@ -2,12 +2,12 @@ import json
 from pathlib import Path
 from urllib.parse import urlparse
 
-ROOT_DIR = Path(__file__).resolve().parents[2]
+ROOT_DIR = Path(__file__).resolve().parents[1]
 README_PATH = ROOT_DIR / "README.md"
 TOOLS_PATH = ROOT_DIR / "tools.json"
 TOOLS_HEADING = "## My Top Free Tools 💜"
 TOOLS_TABLE_PREFIX = "\n\n\n\n"
-TOOLS_NOTE = "Tool data lives in [tools.json](tools.json). Run `python .github/scripts/generate_readme.py` after editing it."
+TOOLS_NOTE = "Tool data lives in [tools.json](tools.json). Run `python scripts/generate_readme.py` after editing it."
 
 REQUIRED_FIELDS = (
     "name",

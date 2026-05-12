@@ -22,4 +22,4 @@ jobs:
           python-version: "3.12"
 
       - name: Check links
-        run: python .github/scripts/check_links.py
+        run: python scripts/check_links.py
