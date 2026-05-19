@@ -55,7 +55,7 @@
     "name": "OpenCode",
     "url": "https://github.com/anomalyco/opencode",
     "category": "Terminal app",
-    "description": "Open source alternative to Claud code",
+    "description": "Open source alternative to Claude code",
     "free_tier": "Supports API key for better models, [base model is free](https://opencode.ai/zen)",
     "score": 7,
     "tags": [
