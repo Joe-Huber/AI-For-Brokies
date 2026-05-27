@@ -8,7 +8,8 @@
     "score": 9,
     "tags": [
       "Model",
-      "Desktop App"
+      "Desktop App",
+      "Student-Deal"
     ],
     "notes": "[$100 in credit for students](https://developers.openai.com/community/students)"
   },
@@ -34,7 +35,8 @@
     "score": 8,
     "tags": [
       "IDE",
-      "Desktop-App"
+      "Desktop-App",
+      "Student-Deal"
     ],
     "notes": "[Free pro for one year for students](https://cursor.com/students)"
   },
@@ -73,7 +75,8 @@
     "score": 6,
     "tags": [
       "IDE-Extension",
-      "Terminal-App"
+      "Terminal-App",
+      "Student-Deal"
     ],
     "notes": "Free premium for [students](https://docs.github.com/en/copilot/how-tos/copilot-on-github/set-up-copilot/enable-copilot/set-up-for-students)"
   },
@@ -85,7 +88,8 @@
     "free_tier": "3 AI Credits per 30 days",
     "score": 3,
     "tags": [
-      "IDE-Extension"
+      "IDE-Extension",
+      "Student-Deal"
     ],
     "notes": "JetBrains offers free AI in IDE with [JetBrains Student Pack](https://www.jetbrains.com/academy/student-pack/)"
   },
@@ -203,7 +207,8 @@
     "score": 4,
     "tags": [
       "IDE",
-      "Terminal-App"
+      "Terminal-App",
+      "Student-Deal"
     ],
     "notes": "[1,000 credits per month for one year for students](https://kiro.dev/students/)"
   },
