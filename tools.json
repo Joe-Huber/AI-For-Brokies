@@ -206,5 +206,17 @@
       "Terminal-App"
     ],
     "notes": "[1,000 credits per month for one year for students](https://kiro.dev/students/)"
+  },
+  {
+    "name": "OpenGUI",
+    "url": "https://github.com/akemmanuel/OpenGUI",
+    "category": "Agent-Orchestrator",
+    "description": "A GUI app for running multiple agents across Codex, OpenCode, and Claude Code.",
+    "free_tier": "All open-source and free, but it is simply a GUI tool and doesn't add agents.",
+    "score": 3,
+    "tags": [
+      "Open-Source"
+    ],
+    "notes": "-"
   }
 ]
