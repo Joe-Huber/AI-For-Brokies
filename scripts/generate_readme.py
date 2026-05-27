@@ -7,7 +7,7 @@ README_PATH = ROOT_DIR / "README.md"
 TOOLS_PATH = ROOT_DIR / "tools.json"
 TOOLS_HEADING = "## My Top Free Tools 💜"
 TOOLS_TABLE_PREFIX = "\n\n\n\n"
-TOOLS_NOTE = "Tool data lives in [tools.json](tools.json). Run `python scripts/generate_readme.py` after editing it."
+TOOLS_NOTE = "Tool data lives in [tools.json](tools.json). Tag descriptions are in [tags.md](tags.md). Run `python scripts/generate_readme.py` after editing tools.json."
 
 REQUIRED_FIELDS = (
     "name",
@@ -146,7 +146,7 @@ def render_readme(tools, readme_path=README_PATH):
         raise ValueError(f"Could not find {TOOLS_HEADING!r} section in README.md")
 
     table = render_tools_table(tools)
-    new_content = f"{prefix}{TOOLS_HEADING}{TOOLS_TABLE_PREFIX}{table}\n"
+    new_content = f"{prefix}{TOOLS_HEADING}{TOOLS_TABLE_PREFIX}{table}\n\n{TOOLS_NOTE}\n"
     readme_path.write_text(new_content, encoding="utf-8")
 
 
