@@ -62,7 +62,8 @@
     "score": 7,
     "tags": [
       "Terminal-App",
-      "Open-Source"
+      "Open-Source",
+      "Api-Optional"
     ],
     "notes": "-"
   },
@@ -102,7 +103,8 @@
     "score": 3,
     "tags": [
       "IDE-Extension",
-      "Terminal-App"
+      "Terminal-App",
+      "Api-Optional"
     ],
     "notes": "-"
   },
@@ -129,7 +131,8 @@
     "tags": [
       "IDE-Extension",
       "Open-Source",
-      "Terminal-App"
+      "Terminal-App",
+      "Api-Required"
     ],
     "notes": "-"
   },
@@ -154,7 +157,8 @@
     "free_tier": "2000 accepted edits or API key",
     "score": 4,
     "tags": [
-      "IDE"
+      "IDE",
+      "Api-Optional"
     ],
     "notes": "-"
   },
@@ -167,7 +171,8 @@
     "score": 4,
     "tags": [
       "Terminal-App",
-      "Open-Source"
+      "Open-Source",
+      "Api-Required"
     ],
     "notes": "-"
   },
@@ -181,7 +186,8 @@
     "tags": [
       "IDE-Extension",
       "Terminal-App",
-      "Open-Source"
+      "Open-Source",
+      "Api-Optional"
     ],
     "notes": "-"
   },
