@@ -229,5 +229,15 @@
       "Open-Source"
     ],
     "notes": "-"
-  }
+  },
+  {
+  "name": "Trae",
+  "url": "https://trae.ai/",
+  "category": "IDE",
+  "description": "AI-native code editor by ByteDance",
+  "free_tier": "$3 worth of credit per month.",
+  "score": 4,
+  "tags": ["IDE"],
+  "notes": "-"
+}
 ]
