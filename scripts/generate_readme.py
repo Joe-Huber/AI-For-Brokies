@@ -111,7 +111,7 @@ def tool_to_row(tool):
 
 def render_tools_table(tools):
     headers = ["Tool", "Category", "Description", "Free tier", "Score", "Tags", "Notes"]
-    tools = sorted(tools, key=lambda t: t.get("score", 0), reverse=True)
+    tools = sorted(tools, key=lambda t: (-t.get("score", 0), t.get("name", "").casefold()))
     rows = [tool_to_row(tool) for tool in tools]
     widths = [len(header) for header in headers]
 
