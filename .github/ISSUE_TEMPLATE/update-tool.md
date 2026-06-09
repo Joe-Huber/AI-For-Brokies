@@ -2,7 +2,7 @@
 name: Update Tool
 about: Request an update to an existing tool listing
 title: "[UPDATE TOOL]"
-labels: Update AI Tool
+labels: Update Tool
 assignees: Joe-Huber
 
 ---
