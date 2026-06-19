@@ -197,7 +197,7 @@
     "category": "IDE Extension & Terminal App",
     "description": "AWS AI coding assistant",
     "free_tier": "Limited free agentic claude requests per month",
-    "score": 7,
+    "score": 5,
     "tags": [
       "IDE-Extension",
       "Terminal-App"
