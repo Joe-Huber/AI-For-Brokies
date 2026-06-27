@@ -33,7 +33,7 @@
   <a href="example_issue.md">View an example submission</a>
 </p>
 
-## My Top Free Tools 💜
+## The Top Free Tools 💜
 
 
 
