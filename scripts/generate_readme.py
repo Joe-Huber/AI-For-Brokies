@@ -5,7 +5,7 @@ from urllib.parse import urlparse
 ROOT_DIR = Path(__file__).resolve().parents[1]
 README_PATH = ROOT_DIR / "README.md"
 TOOLS_PATH = ROOT_DIR / "tools.json"
-TOOLS_HEADING = "## My Top Free Tools 💜"
+TOOLS_HEADING = "## The Top Free Tools 💜"
 TOOLS_TABLE_PREFIX = "\n\n\n\n"
 TOOLS_NOTE = "Tool data lives in [tools.json](tools.json). Tag descriptions are in [tags.md](tags.md). Run `python scripts/generate_readme.py` after editing tools.json."
 
