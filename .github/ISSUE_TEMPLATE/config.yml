@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Read the Contributing Guide
+    url: https://github.com/Joe-Huber/AI-For-Brokies/blob/main/CONTRIBUTING.md
+    about: Please read this before opening an issue.
+  - name: Example Tool Submission
+    url: https://github.com/Joe-Huber/AI-For-Brokies/blob/main/example_issue.md
+    about: See an example of a high‑quality tool submission.
